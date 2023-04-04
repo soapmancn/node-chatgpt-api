@@ -43,7 +43,7 @@ export default {
         // The "_U" cookie value from bing.com
         userToken: '',
         // If the above doesn't work, provide all your cookies as a string instead
-        cookies: '',
+        cookies: process.env.BINGAI_COOKIE || '',
         // A proxy string like "http://<ip>:<port>"
         proxy: '',
         // (Optional) Set to true to enable `console.debug()` logging
@@ -54,7 +54,7 @@ export default {
         // Warning: This will expose your access token to a third party. Consider the risks before using this.
         reverseProxyUrl: 'https://bypass.churchless.tech/api/conversation',
         // Access token from https://chat.openai.com/api/auth/session
-        accessToken: '',
+        accessToken: process.env.CHATGPT_ACCES_STOKEN || '',
         // Cookies from chat.openai.com (likely not required if using reverse proxy server).
         cookies: '',
         // A proxy string like "http://<ip>:<port>"
