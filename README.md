@@ -115,7 +115,7 @@ Discord user @pig#8932 has found a working `text-chat-davinci-002` model, `text-
 - `ChatGPTClient`: support for the official ChatGPT underlying model, `gpt-3.5-turbo`, via OpenAI's API.
   - Replicates chat threads from the official ChatGPT website (with conversation IDs and message IDs), with persistent conversations using [Keyv](https://www.npmjs.com/package/keyv).
     - Conversations are stored in memory by default, but you can optionally [install a storage adapter](https://www.npmjs.com/package/keyv#usage) to persist conversations to a database.
-    - The `keyv-file` adapter is also included in this package, and can be used to store conversations in a JSON file if you're using the API server or CLI (see `settings.example.js`).
+    - The `keyv-file` adapter is also included in this package, and can be used to store conversations in a JSON file if you're using the API server or CLI (see `settings.js`).
   - Supports configurable prompt prefixes, and custom names for the user and ChatGPT.
     - In essence, this allows you to make a chatbot with any personality you want.
     - This is currently only configurable on a global level, but I plan to add support for per-conversation customization.
@@ -282,7 +282,7 @@ Alternatively, you can install and run the package directly.
 
 1. Clone this repository: `git clone https://github.com/waylaidwanderer/node-chatgpt-api`
 2. Install dependencies with `npm install` (if not using Docker)
-3. Rename `settings.example.js` to `settings.js` in the root directory and change the settings where required.
+3. Rename `settings.js` to `settings.js` in the root directory and change the settings where required.
 4. Start the server:
     - using `npm start` or `npm run server` (if not using Docker)
     - using `docker-compose up` (requires Docker)
@@ -307,7 +307,7 @@ Optional parameters are only necessary for conversations that span multiple requ
 | clientOptions.clientToUse | (Optional) The client to use for this message. Possible values: `chatgpt`, `chatgpt-browser`, `bing`.                                                                                                                                                           |
 | clientOptions.*           | (Optional) Any valid options for the client. For example, for `ChatGPTClient`, you can set `clientOptions.openaiApiKey` to set an API key for this message only, or `clientOptions.promptPrefix` to give the AI custom instructions for this message only, etc. |
 
-To configure which options can be changed per message (default: all), see the comments for `perMessageClientOptionsWhitelist` in `settings.example.js`.  
+To configure which options can be changed per message (default: all), see the comments for `perMessageClientOptionsWhitelist` in `settings.js`.  
 To allow changing clients, `perMessageClientOptionsWhitelist.validClientsToUse` must be set to a non-empty array as described in the example settings file.
 </details>
 
